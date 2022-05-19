@@ -26,7 +26,6 @@ const csvWriter = createCsvWriter({
     {id: 'lng', title: 'lng'},
     {id: 'lat', title: 'lat'},
     {id: 'loc', title: 'loc'},
-    {id: 'cont', title: 'cont'},
   ]
 });
 
@@ -84,22 +83,5 @@ async function CallApi(data) {
         await csvWriter.writeRecords([d])
     });
 
-        // Submit the URL and get the response
-        await axios.get(url.href).then(async response => {
-            // Get the api's response
-            if (response.data.results.length>0) {
-                //await console.log(response.data.results[0].formatted)
-                data["cont"] = response.data.results[1].formatted
-            }
-            else
-                data["cont"] = "not found"
-            
-            // Return the data - will be picked up by the 'then'
-            //WriteCsv(data)
-            return data
-        }).then(async d => {
-            // Write the data to csv
-            //await console.log(data)
-            await csvWriter.writeRecords([d])
-        });
+    
 }
