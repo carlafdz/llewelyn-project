@@ -35,7 +35,7 @@ ReadCsv()
 
 async function ReadCsv() {
     // Process the file, create a results array holding all rows from the csv file
-    fs.createReadStream("coordinates.csv")
+    fs.createReadStream("coordinates-short.csv")
         .pipe(csv())
         .on('data', async function(data){
             // We have a row, so save it to the results array
