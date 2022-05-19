@@ -20,7 +20,7 @@ var results = []
 // Create a CSV writer for the output
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
-  path: 'out.csv',
+  path: 'out2.csv',
   header: [
     {id: 'name', title: 'Name'},
     {id: 'lng', title: 'lng'},
