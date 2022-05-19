@@ -26,6 +26,7 @@ const csvWriter = createCsvWriter({
     {id: 'lng', title: 'lng'},
     {id: 'lat', title: 'lat'},
     {id: 'loc', title: 'loc'},
+    {id: 'cont', title: 'cont'},
   ]
 });
 
