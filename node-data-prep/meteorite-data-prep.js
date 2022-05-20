@@ -20,12 +20,14 @@ var results = []
 // Create a CSV writer for the output
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
-  path: 'out2.csv',
+  path: 'out5.csv',
   header: [
-    {id: 'name', title: 'Name'},
-    {id: 'lng', title: 'lng'},
-    {id: 'lat', title: 'lat'},
-    {id: 'loc', title: 'loc'},
+    {id: 'name', title: 'name'},
+    {id: 'longitude', title: 'longitude'},
+    {id: 'latitude', title: 'latitude'},
+    {id: 'country', title: 'country'},
+    {id: 'continent', title: 'continent'},
+
   ]
 });
 
@@ -68,11 +70,36 @@ async function CallApi(data) {
     await axios.get(url.href).then(async response => {
         // Get the api's response
         if (response.data.results.length>0) {
-            //await console.log(response.data.results[0].formatted)
-            data["loc"] = response.data.results[0].formatted
+            //await console.log(response.data.results[0].formatted) you can chech the http to decide wich element to pull
+            data["country"] = response.data.results[0].components.country
+            data["continent"] = response.data.results[0].components.continent
+
         }
         else
-            data["loc"] = "not found"
+            data["country"] = "not found"
+            data["continent"] = "not found"
+        
+        if (response.data.results.length>0) {
+            data["continent"] = response.data.results[0].components.continent
+
+        }
+        else
+            data["continent"] = "not found"
+        
+        if (response.data.results.length>0) {
+                data["latitude"] = response.data.results[0].geometry.lat
+    
+            }
+        else
+            data["latitude"] = "not found"
+        
+        if (response.data.results.length>0) {
+                    data["longitude"] = response.data.results[0].geometry.lng
+        
+            }
+        else
+            data["longitude"] = "not found"
+
         
         // Return the data - will be picked up by the 'then'
         //WriteCsv(data)
