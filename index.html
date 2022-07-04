@@ -175,6 +175,7 @@
                     d3.queue()
                     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")  // World shape
                     .defer(d3.csv, "data/meteorites-landing-cleaned-map.csv") // Position of circles
+                    //"ready" should be a function to draw ??
                     .await(ready);
                     </script>
              <p>El Salvador is the country with the largest number of landed meterorites between 1400 and 2013. Followed by Lithuania, Serbia and the United States of America. 
@@ -190,9 +191,9 @@
                 <div id="my_dataviz"></div>
                     <script class="ridge">
                     // set the dimensions and margins of the graph
-                    var margin = {top: 100, right: 0, bottom: 0, left: 0},
-                        width = 400 - margin.left - margin.right,
-                        height = 360 - margin.top - margin.bottom;
+                    var margin = {top: 60, right: 30, bottom: 20, left: 110},
+                        width = 460 - margin.left - margin.right,
+                        height = 400 - margin.top - margin.bottom;
 
                     // append the svg object to the body of the page
                     var svgridge = d3.select("#my_dataviz")
@@ -201,7 +202,7 @@
                         .attr("height", height + margin.top + margin.bottom)
 
 
-                    svgridge.append("g")
+                    .append("g")
                         .attr("transform",
                             "translate(" + margin.left + "," + margin.top + ")");
                     </script>

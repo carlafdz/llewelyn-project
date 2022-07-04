@@ -30,6 +30,7 @@ function setup() {
     //cursor('https://64.media.tumblr.com/de76c5c61256ed87de95db9e9cbbe1f4/70056dacaa7e2276-8f/s75x75_c1/78cbb577ceb30a91dbaab5850d8e3a807b707be7.pnj')
     //cursor('https://github.com/jumpi00/Carla-Giampaolo_project/blob/master/comet_2604-fe0f.png?raw=true')
 
+    print("currentyear",currentYear)
     numRows = table.getRowCount()
 
     while (counter<numRows-1) {
@@ -119,7 +120,7 @@ function setup() {
         //if (counter>=numRows-1) { //I changed this because it was not showing the 2000s meteorites
         background('#BAE1F4')
         counter = 0
-        currentYear =1400
+        currentYear =1399
       }
 
       

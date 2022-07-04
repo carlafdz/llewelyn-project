@@ -1,4 +1,6 @@
 function ready(error, dataGeo, data) {
+//data = filterByValue(data,"homecontinent","Asia")
+
 
   // Create a color scale
   var allContinent = d3.map(data, function(d){return(d.homecontinent)}).keys()
