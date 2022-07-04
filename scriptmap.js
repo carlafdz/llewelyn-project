@@ -9,7 +9,7 @@ function ready(error, dataGeo, data) {
     .domain(allContinent)
     .range(["#b3e2cd","#fdcdac","#cbd5e8","#f4cae4","#e6f5c9","#fff2ae","#f1e2cc","#cccccc"]);
 
-
+//n is the sum of meteroites of each country. 
 
   // Add a scale for bubble size
   var valueExtent = d3.extent(data, function(d) { return +d.n; })
