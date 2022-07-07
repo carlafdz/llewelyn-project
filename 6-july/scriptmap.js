@@ -1,14 +1,13 @@
 function ready(error, dataGeo, data) {
-//data = filterByValue(data,"homecontinent","Asia")
-//our
-svg = svgmap
 
- // Add the visibility flag
- for (let i = 0; i < data.length; i++) {
-  data[i]["visible"] = "visible"
-}
+  svg = svgmap
 
-console.log(data)
+  // Add the visibility flag
+  for (let i = 0; i < data.length; i++) {
+    data[i]["visible"] = "visible"
+  }
+
+  console.log(data)
 
   // Create a color scale
   var allContinent = d3.map(data, function (d) { return (d.homecontinent) }).keys()
@@ -19,19 +18,19 @@ console.log(data)
 
   // Draw the map
   svg.append("g")
-      .selectAll("path")
-      .data(dataGeo.features)
-      .enter()
-      .append("path")
-        .attr("fill", "#9dafc4")
-        .attr("d", d3.geoPath()
-            .projection(projection)
-        )
-      .style("stroke", "#694629")
-      .style("opacity", .3)
+    .selectAll("path")
+    .data(dataGeo.features)
+    .enter()
+    .append("path")
+    .attr("fill", "#9dafc4")
+    .attr("d", d3.geoPath()
+      .projection(projection)
+    )
+    .style("stroke", "#694629")
+    .style("opacity", .3)
   update()
-  
-  
+
+
   function update() {
     // Add a scale for bubble size
     var valueExtent = d3.extent(data, function (d) { return +d.n; })
@@ -41,8 +40,8 @@ console.log(data)
 
     console.log("hello")
 
-  // Add circles:
-   selection = svg
+    // Add circles:
+    selection = svg
       .selectAll("circle")
       //.data(currentData.sort(function (a, b) { return +b.n - +a.n }).filter(function (d, i) { return i < 1000 }))
       .data(data)
@@ -67,7 +66,7 @@ console.log(data)
   dispatch.on('redraw', function (filterValue) {
     console.log("dispatch called")
     for (let i = 0; i < data.length; i++) {
-      if (data[i].homecontinent == filterValue || filterValue == "All")
+      if (data[i].homecontinent == filterValue)
         data[i].visible = "visible"
       else
         data[i].visible = "hidden"
@@ -75,7 +74,7 @@ console.log(data)
     console.log(data)
     update()
   })
-  
+
   /*MAYBE WE DO NOT NEED THIS ONE
   // Add title and explanation
   svg

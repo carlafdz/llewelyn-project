@@ -1,10 +1,12 @@
 > Questions:
 
-The P5 visualisation works well with the data, but the loop stops working after two rounds. We don't know why.
+X [COMPLETED] The P5 visualisation works well with the data, but the loop stops working after two rounds. We don't know why.
 
-The D3 diagrams are cut. We don't know if it’s because of the div or something we need to do with the D3 code. 
+X [COMPLETED] The D3 diagrams are cut. We don't know if it’s because of the div or something we need to do with the D3 code. 
 
-We wanted to integrate a little interaction with the continent-regions buttons. So the map and the ridgeline only show that information.
+X [COMPLETED] We wanted to integrate a little interaction with the continent-regions buttons. So the map and the ridgeline only show that information.
+
+The second chart too should interact with the buttons.
 
 Adding the graticule for the map. We manage to create the paths but the lines looked strange
 
