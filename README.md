@@ -10,6 +10,9 @@ The second chart too should interact with the buttons.
 
 Adding the graticule for the map. We manage to create the paths but the lines looked strange
 
+Delete the libraries we don't need
+
+Add a transition to the buttons filtering
 
 
 > In addition, we are going to try to do this:
