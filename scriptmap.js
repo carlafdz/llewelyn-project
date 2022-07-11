@@ -33,6 +33,32 @@ console.log(data)
       .style("opacity", .3)
   update()
   
+  // create a tooltip
+  const Tooltip = d3.select("#my0")
+  .append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 1)
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "2px")
+  .style("border-radius", "5px")
+  .style("padding", "5px")
+
+  // Three function that change the tooltip when user hover / move / leave a cell
+  const mouseover = function(event, d) {
+    Tooltip.style("opacity", 1)
+  }
+  var mousemove = function(event, d) {
+    Tooltip
+      .html(d.country + "<br>" + "long: " + d.n)
+      .style("left", (event.x)/2 + "px")
+      .style("top", (event.y)/2 - 30 + "px")
+  }
+  var mouseleave = function(event, d) {
+    Tooltip.style("opacity", 0)
+  }
+
+
   
   function update() {
     // Add a scale for bubble size

@@ -19,4 +19,5 @@ Add a transition to the buttons filtering
 
 Change the colour of the map
 
-Add a toolbox to the map. Hover to show the country name.
+Add a toolbox to the map. Hover to show the country name --> strange effect https://d3-graph-gallery.com/graph/bubblemap_tooltip.html
+
