@@ -14,7 +14,7 @@ Delete the libraries we don't need
 
 Add a transition to the buttons filtering
 
-
+ 
 > In addition, we are going to try to do this:
 
 Change the colour of the map
