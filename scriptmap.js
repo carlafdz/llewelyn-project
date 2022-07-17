@@ -44,6 +44,7 @@ console.log(data)
   .style("border-radius", "5px")
   .style("padding", "5px")
 
+  
   // Three function that change the tooltip when user hover / move / leave a cell
   const mouseover = function(event, d) {
     Tooltip.style("opacity", 1)
@@ -88,6 +89,9 @@ console.log(data)
       .style("stroke", "#000000")
       .attr("fill-opacity", .4)
       .attr("visibility", function (d) { return d.visible })
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
 
   }
 

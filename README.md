@@ -13,11 +13,10 @@ Adding the graticule for the map. We manage to create the paths but the lines lo
 Delete the libraries we don't need
 
 Add a transition to the buttons filtering
-
  
 > In addition, we are going to try to do this:
 
 Change the colour of the map
 
-Add a toolbox to the map. Hover to show the country name --> strange effect https://d3-graph-gallery.com/graph/bubblemap_tooltip.html
+Add a tooltip to the map. Hover to show the country name --> strange effect https://d3-graph-gallery.com/graph/bubblemap_tooltip.html
 
