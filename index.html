@@ -132,14 +132,14 @@
                 <h5>Total OF METEORITES LANDED in each country</h5>
                 
                 <div id="my0"></div>
-
+                                <!--
                 <style>
                     .circle:hover{
                     stroke: black;
                     stroke-width: 4px;
                     }
-                </style>
-
+                </style>-->
+                
                     <!--Create an element where the map will take place-->
                     <script class="bubble">
                     //drawing the grid
@@ -169,11 +169,9 @@
                 // Create and configure a path generator
                 var pathGenerator = d3.geoPath()
                 .projection(projection);
-
                 // Create and configure the graticule generator (one line every 20 degrees)
                 var graticule = d3.geoGraticule()
                 //.step([1, 1]);
-
                 // Graticule lines (behind the land)
                 var lines = svgmap.selectAll('path.graticule').data([graticule()]);
                     lines.enter().append('path').classed('graticule', true);
@@ -184,7 +182,6 @@
                     var context = d3.select('#content canvas')
                     .node()
                     .getContext('2d');
-
                     var graticule = d3.geoGraticule();
                     context.beginPath();
                     context.strokeStyle = '#ccc';
@@ -197,7 +194,6 @@
                     //"ready" should be a function to draw ??
                     .await(ready);
                     </script>
-
              <p>El Salvador is the country with the largest number of landed meterorites between 1400 and 2013. Followed by Lithuania, Serbia and the United States of America. 
              </p>
             </div>

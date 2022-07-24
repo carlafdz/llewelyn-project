@@ -17,6 +17,8 @@ console.log(data)
     .domain(allContinent)
     .range(["#b3e2cd", "#fdcdac", "#cbd5e8", "#f4cae4", "#e6f5c9", "#fff2ae", "#f1e2cc", "#cccccc"]);
 
+//n is the sum of meteroites of each country. 
+
   // Draw the map
   svg.append("g")
       .selectAll("path")
@@ -31,6 +33,33 @@ console.log(data)
       .style("opacity", .3)
   update()
   
+  // create a tooltip
+/*  const Tooltip = d3.select("#my0")
+  .append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 1)
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "2px")
+  .style("border-radius", "5px")
+  .style("padding", "5px")*/
+
+  
+  // Three function that change the tooltip when user hover / move / leave a cell
+  const mouseover = function(event, d) {
+    Tooltip.style("opacity", 1)
+  }
+  var mousemove = function(event, d) {
+    Tooltip
+      .html(d.country + "<br>" + "long: " + d.n)
+      .style("left", (event.x)/2 + "px")
+      .style("top", (event.y)/2 - 30 + "px")
+  }
+  var mouseleave = function(event, d) {
+    Tooltip.style("opacity", 0)
+  }
+
+
   
   function update() {
     // Add a scale for bubble size
@@ -60,11 +89,14 @@ console.log(data)
       .style("stroke", "#000000")
       .attr("fill-opacity", .4)
       .attr("visibility", function (d) { return d.visible })
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
 
   }
 
   // Create an event listener, waiting to be notified that the button has been clicked
-  dispatch.on('redraw', function (filterValue) {
+/*  dispatch.on('redraw', function (filterValue) {
     console.log("dispatch called")
     for (let i = 0; i < data.length; i++) {
       if (data[i].homecontinent == filterValue || filterValue == "All")
@@ -75,6 +107,8 @@ console.log(data)
     console.log(data)
     update()
   })
+*/
+  
   
   /*MAYBE WE DO NOT NEED THIS ONE
   // Add title and explanation
@@ -109,6 +143,7 @@ console.log(data)
       .attr("r", function(d){ return size(d) })
       .style("fill", "none")
       .attr("stroke", "#694629")
+
   // Add legend: segments
   svg
     .selectAll("legend")
@@ -121,6 +156,7 @@ console.log(data)
       .attr('y2', function(d){ return height - size(d) } )
       .attr('stroke', '#694629')
       .style('stroke-dasharray', ('2,2'))
+
   // Add legend: labels
   svg
     .selectAll("legend")
